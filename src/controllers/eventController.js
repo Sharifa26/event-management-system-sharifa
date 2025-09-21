@@ -41,6 +41,7 @@ const createEvent = async (req, res) => {
 //Get a single event by All
 const getEvent = async (req, res) => {
     const id = req.params.id;
+    if (!id) return res.status(400).json({ message: 'Event ID is required' });
     try {
         const event = await Event.findByPk(id,
             {

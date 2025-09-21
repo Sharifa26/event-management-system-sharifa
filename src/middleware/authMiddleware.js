@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import db from "../models/index.js";
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: process.env.NODE_ENV === "test" ? ".env.test" : ".env" });
 
 const { User } = db;
 
